@@ -1,0 +1,64 @@
+﻿<Page x:Class="prog6.Pages.ListUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:prog6.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListUsers" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.ColumnSpan="2" FontSize="36" HorizontalAlignment="Center">Список клиентов</Label>
+        <Button Grid.Column="2" FontSize="36" Click="Button_Click">+</Button>
+        <ListView x:Name="ListUser" Grid.Row="1" Grid.RowSpan="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Surname}" Width="90">Фамилия</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="90">Имя</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Lastname}" Width="90">Отчество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Date}" Width="100">Дата Рождения</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Phone}" Width="90">Номер</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="7" Click="Delete_Click">Удалить клиента</Button>
+        <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Click="AddUser_Click">Добавить клиента</Button>
+        <TextBox x:Name="SearchBox" Grid.Row="1" Grid.Column="1"></TextBox>
+        <Button Grid.Row="1" Grid.Column="2" Click="SearchUser_Click">Найти клиента</Button>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Center">Фамилия</Label>
+            <TextBox Grid.Row="1" x:Name="Surname"></TextBox>
+            <Label Grid.Row="2" HorizontalAlignment="Center">Имя</Label>
+            <TextBox Grid.Row="3" x:Name="Name"></TextBox>
+            <Label Grid.Row="4" HorizontalAlignment="Center">Отчество</Label>
+            <TextBox Grid.Row="5" x:Name="Lastname"></TextBox>
+            <Label Grid.Row="6" HorizontalAlignment="Center">Номер</Label>
+            <TextBox Grid.Row="7" x:Name="Phone"></TextBox>
+        </Grid>
+    </Grid>
+</Page>
